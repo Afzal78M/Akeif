@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Movie Ticket Booking</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #1e1e2f;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      background: #2c2c44;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.6);
+      width: 350px;
+      text-align: center;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+      color: #ffcc00;
+    }
+
+    label {
+      display: block;
+      margin: 10px 0 5px;
+      text-align: left;
+    }
+
+    select, input {
+      width: 100%;
+      padding: 8px;
+      border-radius: 5px;
+      border: none;
+      margin-bottom: 15px;
+      font-size: 14px;
+    }
+
+    button {
+      background: #ffcc00;
+      border: none;
+      padding: 10px;
+      width: 100%;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #e6b800;
+    }
+
+    .result {
+      margin-top: 15px;
+      font-size: 16px;
+      font-weight: bold;
+      color: #90ee90;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🎬 Movie Booking</h1>
+
+    <label for="movie">Select Movie:</label>
+    <select id="movie">
+      <option value="250">Avengers - ₹250</option>
+      <option value="200">Spider-Man - ₹200</option>
+      <option value="180">Batman - ₹180</option>
+      <option value="150">Frozen - ₹150</option>
+    </select>
+
+    <label for="tickets">Number of Tickets:</label>
+    <input type="number" id="tickets" min="1" max="10" value="1">
+
+    <button onclick="calculate()">Book Now</button>
+
+    <div class="result" id="result"></div>
+  </div>
+
+  <script>
+    function calculate() {
+      const movie = document.getElementById("movie");
+      const price = parseInt(movie.value);
+      const tickets = parseInt(document.getElementById("tickets").value);
+      const total = price * tickets;
+
+      document.getElementById("result").innerText =
+        `✅ Booking Confirmed!\nTotal: ₹${total}`;
+    }
+  </script>
+</body>
+</html>
